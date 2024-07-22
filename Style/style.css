@@ -2,18 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: 0.2s;
 }
 html {
   font-size: 62.5%;
 }
+
 a {
   text-decoration: none;
 }
+a img {
+  border-radius: 2rem;
+  box-shadow: var(--shadow-mid);
+  transition: 0.2s;
+}
 
 :root {
-  --shadow-mid: 0px 1px 3px 0px #5d6b842e, 0px 6px 6px 0px #5d6b8426,
-    0px 13px 8px 0px #5d6b8417, 0px 23px 9px 0px #5d6b8408;
+  --shadow-mid: 0px 6px 20px 0px rgba(109, 98, 98, 0.366);
 }
 @font-face {
   font-family: "logoFont";
@@ -21,6 +25,7 @@ a {
 }
 
 /*======== Common Classes start ========*/
+
 .f-Center {
   display: flex;
   justify-content: center;
@@ -35,14 +40,23 @@ a {
 .container {
   max-width: 142rem;
   margin: 0 auto;
-  padding: 9.6rem 2.4rem;
+}
+.b-radius {
+  border-radius: 1.6rem;
+}
+.img_WH100 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 /*========= Common Classes end ===============*/
 
 /*================Bg start ===============*/
+
 .background {
   background-color: #0093e9;
   background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+
   position: fixed;
   top: 0;
   left: 0;
@@ -51,75 +65,101 @@ a {
   height: 100%;
 }
 .animat-box-bg {
-  width: 100vh;
-  height: 100vh;
   position: absolute;
-  background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
   border-radius: 50%;
-  animation: move 10s linear infinite;
-  filter: blur(1rem);
+  background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
 }
 .bottom {
   bottom: -50vh;
   right: -40vh;
+  width: 100vh;
+  height: 100vh;
+  animation: move 5s ease-in-out infinite;
 }
 .top {
-  top: 0;
-  /* background-color: #4158d0;
-  background-image: linear-gradient(
-    43deg,
-    #4158d0 0%,
-    #c850c0 46%,
-    #ffcc70 100%
-  ); */
-  left: -20vh;
   top: -20vh;
+  left: -20vh;
   width: 50vh;
   height: 50vh;
+  animation: move 5s ease-in-out infinite;
 }
+
+.center {
+  animation: move 5s ease-in-out infinite;
+  top: 6vh;
+  right: 1%;
+  width: 30vh;
+  height: 30vh;
+}
+
 @keyframes move {
   0% {
-    border-radius: 50%;
-    right: -40vh;
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
   }
-
-  20% {
-    border-radius: 41% 59% 21% 79% / 35% 29% 71% 65%;
-    right: -50vh;
+  25% {
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
   }
-  40% {
-    border-radius: 32% 68% 31% 69% / 51% 29% 71% 49%;
-    right: -60vh;
+  50% {
+    border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
   }
-  60% {
-    border-radius: 28% 72% 69% 31% / 67% 29% 71% 33%;
-    right: -70vh;
+  75% {
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
   }
-  80% {
-    border-radius: 22% 78% 69% 31% / 69% 29% 71% 31%;
-    right: -60vh;
-  }
-
   100% {
-    right: -40vh;
-    border-radius: 50%;
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
   }
 }
-/*================Bg End ===============*/
 
-/*================Logo start ===============*/
-.logo-Container {
-  width: 9.6rem;
-  height: 9.6rem;
+/*================Bg End ===============*/
+.mainContainer {
+  padding-top: 2rem;
+  gap: 4rem;
+}
+nav {
+  display: grid;
+  grid-template-columns: repeat(11, 96px);
+  grid-template-rows: repeat(1, 104px);
+  grid-gap: 16px;
+  width: 121.6rem;
+  grid-template-areas: ". nav nav nav nav nav nav nVi nVi  nVi nVi";
+}
+main {
+  display: grid;
+  background-color: rgba(255, 255, 255, 0.39);
+  backdrop-filter: blur(2rem);
+  padding: 4rem 3rem;
+  border-radius: 2rem;
+  grid-template-columns: repeat(10, minmax(96px, 1fr));
+  grid-template-rows: repeat(11, 104px);
+  grid-gap: 20px;
+  width: 121.6rem;
+  grid-template-areas:
+    "pr01 pr01 pr02 pr02 pr03 pr03 pr04 pr04 pr05 pr05 "
+    "pr01 pr01 pr02 pr02 pr03 pr03 pr04 pr04 pr05 pr05 "
+    "pr01 pr01 pr07 pr07 pr03 pr03 pr09 pr09 pr05 pr05 "
+    "pr06 pr06 pr07 pr07 pr08 pr08 pr09 pr09 pr10 pr10 "
+    "pr06 pr06 pr07 pr07 pr08 pr08 pr09 pr09 pr10 pr10 "
+    "pr06 pr06 pr12 pr12 pr08 pr08 pr14 pr14 pr10 pr10 "
+    "pr11 pr11 pr12 pr12 pr13 pr13 pr14 pr14 pr15 pr15 "
+    "pr11 pr11 pr12 pr12 pr13 pr13 pr14 pr14 pr15 pr15 "
+    "pr11 pr11  .    .   pr13 pr13  .    .   pr15 pr15 "
+    " .    .    .    .    .    .    .    .    .    .   "
+    " .    .    .    .    .    .    .    .    .    .   "
+    " .    .    .    .    .    .    .    .    .    .   ";
+}
+/*================Logo nav start ===============*/
+.logoContainer {
   border-radius: 16px;
   background-color: white;
-  margin: 2rem;
   box-shadow: var(--shadow-mid);
-
+  position: fixed;
+  width: 9.6rem;
+  height: 10.4rem;
+  z-index: 1;
   & .logo {
     height: 58%;
-    font-family: logoFont;
-    font-size: 1.5rem;
+    font-family: "logoFont";
+    font-size: 2rem;
     letter-spacing: 0.2rem;
     color: #002b50;
     font-weight: bolder;
@@ -146,7 +186,7 @@ a {
       height: 100%;
       cursor: pointer;
       &:hover {
-        background-color: #9db1ec49;
+        background-color: #e7ecf2;
       }
     }
     & .home {
@@ -159,4 +199,121 @@ a {
     }
   }
 }
-/*================Logo End ===============*/
+/*================Logo nav End ===============*/
+
+/*================note nav start ===============*/
+.noteOrg {
+  padding: 0 2rem;
+  grid-area: nav;
+  justify-content: start;
+  background-color: white;
+  border-radius: 16px;
+  text-transform: capitalize;
+  word-spacing: 0.6rem;
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: "Dosis", Courier, monospace;
+  & p {
+    background: linear-gradient(rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  & p span {
+    background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: "Comfortaa", Courier, monospace;
+  }
+  & .icon {
+    margin-left: 1rem;
+    margin-bottom: -0.8rem;
+  }
+}
+/*================note nav end ===============*/
+/*================navVideo nav start ===============*/
+.navVideo {
+  grid-area: nVi;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.6rem;
+  }
+}
+/*================navVideo nav end ===============*/
+
+.appIcon {
+  & .caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-family: "Urbanist", Courier, monospace;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.459);
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    opacity: 0;
+    transition: all 0.2s;
+    color: white;
+  }
+  &:hover .caption {
+    opacity: 1;
+  }
+  &:hover {
+    transition: 0.3s;
+    transform: scale(1.03);
+  }
+}
+
+.pr1 {
+  grid-area: pr01;
+}
+
+.pr2 {
+  grid-area: pr02;
+  position: relative;
+}
+
+.pr3 {
+  grid-area: pr03;
+}
+.pr4 {
+  grid-area: pr04;
+}
+.pr5 {
+  grid-area: pr05;
+}
+.pr6 {
+  grid-area: pr06;
+}
+.pr7 {
+  grid-area: pr07;
+}
+.pr8 {
+  grid-area: pr08;
+}
+.pr9 {
+  grid-area: pr09;
+}
+.pr10 {
+  grid-area: pr10;
+}
+.pr11 {
+  grid-area: pr11;
+}
+.pr12 {
+  grid-area: pr12;
+}
+.pr13 {
+  grid-area: pr13;
+}
+.pr14 {
+  grid-area: pr14;
+}
+.pr15 {
+  grid-area: pr15;
+}
