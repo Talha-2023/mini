@@ -10,18 +10,24 @@ html {
 a {
   text-decoration: none;
 }
-a img {
-  border-radius: 2rem;
-  box-shadow: var(--shadow-mid);
-  transition: 0.2s;
-}
 
-:root {
-  --shadow-mid: 0px 6px 20px 0px rgba(109, 98, 98, 0.366);
-}
 @font-face {
   font-family: "logoFont";
   src: url(Assets/Fonts/Minison.ttf);
+}
+:root {
+  --shadow-mid: 0px 6px 20px 0px rgba(109, 98, 98, 0.366);
+  --linear-Color-Circle: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
+  --bg-linear-color: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+::-webkit-scrollbar-track {
+  background: white;
+}
+::-webkit-scrollbar-thumb {
+  background: #009cff;
 }
 
 /*======== Common Classes start ========*/
@@ -54,8 +60,7 @@ a img {
 /*================Bg start ===============*/
 
 .background {
-  background-color: #0093e9;
-  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  background-image: var(--bg-linear-color);
 
   position: fixed;
   top: 0;
@@ -67,7 +72,7 @@ a img {
 .animat-box-bg {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
+  background: var(--linear-Color-Circle);
 }
 .bottom {
   bottom: -50vh;
@@ -77,10 +82,10 @@ a img {
   animation: move 5s ease-in-out infinite;
 }
 .top {
-  top: -20vh;
-  left: -20vh;
-  width: 50vh;
-  height: 50vh;
+  top: -10vh;
+  left: -30vh;
+  width: 80vh;
+  height: 100vh;
   animation: move 5s ease-in-out infinite;
 }
 
@@ -111,27 +116,62 @@ a img {
 }
 
 /*================Bg End ===============*/
-.mainContainer {
-  padding-top: 2rem;
-  gap: 4rem;
+
+/*!================Nav start ===============*/
+
+.noteOrg {
+  padding: 0 2rem;
+  grid-area: nav;
+  justify-content: start;
+  background-color: white;
+  border-radius: 16px;
+  text-transform: capitalize;
+  word-spacing: 0.6rem;
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: "Dosis", Courier, monospace;
+  box-shadow: var(--shadow-mid);
+
+  & p {
+    background: linear-gradient(rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  & p span {
+    background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+  }
+  & .icon {
+    margin-left: 1rem;
+    margin-bottom: -0.8rem;
+  }
 }
-nav {
-  display: grid;
-  grid-template-columns: repeat(11, 96px);
-  grid-template-rows: repeat(1, 104px);
-  grid-gap: 16px;
-  width: 121.6rem;
-  grid-template-areas: ". nav nav nav nav nav nav nVi nVi  nVi nVi";
+.navVideo {
+  grid-area: nVi;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.6rem;
+  }
+}
+/*!================Nav End ===============*/
+.mainContainer {
+  gap: 4rem;
 }
 main {
   display: grid;
   background-color: rgba(255, 255, 255, 0.39);
+  border: 1px solid rgba(255, 255, 255, 0.678);
   backdrop-filter: blur(2rem);
-  padding: 4rem 3rem;
-  border-radius: 2rem;
+  box-shadow: var(--shadow-mid);
+  padding: 5rem 3rem;
+  border-radius: 3rem;
   grid-template-columns: repeat(10, minmax(96px, 1fr));
   grid-template-rows: repeat(11, 104px);
-  grid-gap: 20px;
+  grid-gap: 2rem;
   width: 121.6rem;
   grid-template-areas:
     "pr01 pr01 pr02 pr02 pr03 pr03 pr04 pr04 pr05 pr05 "
@@ -147,102 +187,13 @@ main {
     " .    .    .    .    .    .    .    .    .    .   "
     " .    .    .    .    .    .    .    .    .    .   ";
 }
-/*================Logo nav start ===============*/
-.logoContainer {
-  border-radius: 16px;
-  background-color: white;
-  box-shadow: var(--shadow-mid);
-  position: fixed;
-  width: 9.6rem;
-  height: 10.4rem;
-  z-index: 1;
-  & .logo {
-    height: 58%;
-    font-family: "logoFont";
-    font-size: 2rem;
-    letter-spacing: 0.2rem;
-    color: #002b50;
-    font-weight: bolder;
-    background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
-    -webkit-background-clip: text;
-    color: transparent;
-    cursor: pointer;
 
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
+.appName_Container {
+  overflow: hidden;
+  border-radius: 20px;
+  transition: all ease-in-out 0.3s;
+  position: relative;
 
-  & .icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 42%;
-    border-top: 0.2rem solid #f0f5fc;
-
-    & .home,
-    & .search {
-      width: 50%;
-      height: 100%;
-      cursor: pointer;
-      &:hover {
-        background-color: #e7ecf2;
-      }
-    }
-    & .home {
-      border-right: 0.1rem solid #f0f5fc;
-      border-radius: 0px 0px 0px 16px;
-    }
-    & .search {
-      border-left: 0.1rem solid #f0f5fc;
-      border-radius: 0px 0px 16px 0px;
-    }
-  }
-}
-/*================Logo nav End ===============*/
-
-/*================note nav start ===============*/
-.noteOrg {
-  padding: 0 2rem;
-  grid-area: nav;
-  justify-content: start;
-  background-color: white;
-  border-radius: 16px;
-  text-transform: capitalize;
-  word-spacing: 0.6rem;
-  font-size: 2rem;
-  font-weight: 900;
-  font-family: "Dosis", Courier, monospace;
-  & p {
-    background: linear-gradient(rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-  & p span {
-    background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-family: "Comfortaa", Courier, monospace;
-  }
-  & .icon {
-    margin-left: 1rem;
-    margin-bottom: -0.8rem;
-  }
-}
-/*================note nav end ===============*/
-/*================navVideo nav start ===============*/
-.navVideo {
-  grid-area: nVi;
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 1.6rem;
-  }
-}
-/*================navVideo nav end ===============*/
-
-.appIcon {
   & .caption {
     position: absolute;
     top: 50%;
@@ -252,20 +203,23 @@ main {
     letter-spacing: 1px;
     font-family: "Urbanist", Courier, monospace;
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.459);
+    background-color: rgba(0, 0, 0, 0.555);
     width: 100%;
     height: 100%;
-    border-radius: 20px;
     opacity: 0;
-    transition: all 0.2s;
     color: white;
+    padding: 1rem;
+    text-align: center;
   }
   &:hover .caption {
     opacity: 1;
   }
+  &:hover img {
+    transform: scale(1.1);
+  }
   &:hover {
     transition: 0.3s;
-    transform: scale(1.03);
+    transform: scale(1.1);
   }
 }
 
