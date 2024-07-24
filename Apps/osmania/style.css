@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+#page1 {
+  margin: 25px;
+  font-weight: bold;
+  font: Arial;
+}
+.pg1-topPara {
+  margin-bottom: 0px;
+}
+#page2 {
+  display: none;
+}
+#page2 * {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+#setHallTicket {
+  width: 33%;
+  font-weight: bold;
+  font: Arial;
+  color: #ff0000;
+}
+
+.error {
+  display: none;
+}
+.btnHallTicket {
+  position: fixed;
+  bottom: 1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  gap: 10px;
+
+  & p {
+    margin-top: -7px;
+    margin-left: -5px;
+    position: relative;
+  }
+}
+#shift,
+#ubtn {
+  background-color: #d3d3d3;
+}
+.btnDesign {
+  padding: 10px 15px;
+  border: 1px outset black;
+  border-radius: 10px;
+  position: relative;
+
+  &::before {
+    content: "";
+    border: 1px outset black;
+    border-radius: 5px;
+    position: absolute;
+    background-color: white;
+    width: 90%;
+    height: 80%;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.hallTicketDash {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: absolute;
+  padding: 10px 10px;
+  gap: 20px;
+  height: 80vh;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px 0px 0px 20px;
+  overflow-y: scroll;
+  display: none;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #009cff;
+  }
+}
+.press {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+.hallticketCopy {
+  padding: 10px;
+  background-color: #f4f5f7;
+  border-radius: 20px;
+  margin-top: 10px;
+  & .inpHallticket {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #f4f5f7;
+    width: 130px;
+    font-weight: 700;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+.btnDesignCopy {
+  background: #5784f5;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  color: white;
+  &:active {
+    background: #809ce2;
+  }
+}
+.copied {
+  position: absolute;
+  background-color: #5c81dc;
+  padding: 8px 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  bottom: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: sans-serif;
+  color: white;
+  font-weight: 700;
+  display: none;
+  animation: fadeCopy 2.6s linear;
+}
+@keyframes fadeCopy {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* .hallticketCopy.active button:before,
+.hallticketCopy.active button:after {
+  display: block;
+} */

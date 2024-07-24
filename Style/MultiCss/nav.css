@@ -9,18 +9,8 @@ html {
 
 :root {
   --shadow-mid: 0px 6px 20px 0px rgba(109, 98, 98, 0.366);
-  --linear-Color-Circle: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
-  --bg-linear-color: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 }
-::-webkit-scrollbar {
-  width: 0.3rem;
-}
-::-webkit-scrollbar-track {
-  background: white;
-}
-::-webkit-scrollbar-thumb {
-  background: #009cff;
-}
+
 @font-face {
   font-family: "logoFont";
   src: url(../../Style/Assets/Fonts/Minison.ttf);
@@ -46,17 +36,8 @@ html {
 /*========= Common Classes end ===============*/
 
 /*!================nav start ===============*/
-nav {
-  margin: 3rem auto 4rem;
-  display: grid;
-  grid-template-columns: repeat(11, 96px);
-  grid-template-rows: repeat(1, 104px);
-  grid-gap: 16px;
-  width: 121.6rem;
-  grid-template-areas: " .  nav nav nav nav nav nav  nVi nVi nVi nVi";
-}
+
 .logoContainer {
-  border-radius: 16px;
   background-color: white;
   box-shadow: var(--shadow-mid);
   position: fixed;
