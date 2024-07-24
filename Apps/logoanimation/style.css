@@ -1,0 +1,25 @@
+.ball {
+  width: 8px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
+  position: absolute;
+  z-index: 100000000;
+  top: 65px;
+  left: 41.7px;
+  animation: identifier 1s ease-in-out infinite;
+}
+
+@keyframes identifier {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+    width: 7px;
+    height: 7px;
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
