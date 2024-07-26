@@ -529,8 +529,8 @@ window.addEventListener("keydown", (e) => {
 });
 
 function onkeyup() {
-  window.addEventListener("keyup", () =>; {
-    shiftBg.style.transform = "scale(1)"
+  window.addEventListener("keyup", () => {
+    shiftBg.style.transform = "scale(1)";
     shiftBg.style.backgroundColor = "#D3D3D3";
     ubtnBg.style.transform = "scale(1)";
     ubtnBg.style.backgroundColor = "#D3D3D3";

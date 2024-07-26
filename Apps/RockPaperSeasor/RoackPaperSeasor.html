@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="RoackPaperSeasor.css" />
+    <link rel="stylesheet" href="../../Style/MultiCss/nav.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Righteous&family=Rowdies:wght@300;400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- !===============Logo Nav================ -->
+    <div
+      class="logoContainer b-radius"
+      style="position: fixed; bottom: 30px; right: 30px"
+    >
+      <div class="logo f-Center-Colm" style="font-size: 15px">
+        <h1>mini</h1>
+      </div>
+      <div class="icons">
+        <a href="../../index.html">
+          <div class="home f-Center">
+            <img
+              src="../../Style/Assets/Icons/homeIcon.svg"
+              alt=""
+              width="40%"
+            />
+          </div>
+        </a>
+
+        <div class="search f-Center">
+          <a class="f-Center" href="">
+            <img
+              src="../../Style/Assets/Icons/searchIcon.svg"
+              alt=""
+              width="38%"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- !===============Logo Nav================ -->
+    <div class="main_container">
+      <div class="computerWin grind_center" id="comScoreContainer">
+        <img src="robot.svg" width="60%" alt="" />
+        <p>Win</p>
+        <br />
+        <span id="computerScore">0</span>
+      </div>
+
+      <main>
+        <div class="displayContainer" id="animationSwitch">
+          <div class="computer grind_center computer_animation">
+            <img id="computerHand" src="rock.png" width="50%" />
+          </div>
+          <div class="user grind_center user_animation">
+            <img id="userHand" src="rock.png" width="50%" />
+          </div>
+        </div>
+        <div class="letplay grind_center"><p id="letsPlay">Lets Play!</p></div>
+        <div class="optionContainer" id="disableClick">
+          <div
+            class="rock"
+            onclick="rockFunc() , computerFun() , resultAnimation()"
+          >
+            <img src="rock.png" alt="" width="70px" />
+            <p>Rock</p>
+          </div>
+          <div
+            class="paper"
+            onclick="paperFunc()  , computerFun() , resultAnimation()"
+          >
+            <img src="paper.png" alt="" width="70px" />
+            <p>Paper</p>
+          </div>
+          <div
+            class="scissors"
+            onclick="scissorsFunc()  , computerFun() , resultAnimation()"
+          >
+            <img src="scissor.png" alt="" width="70px" />
+            <p>Scissors</p>
+          </div>
+        </div>
+      </main>
+
+      <div class="computerWin grind_center" id="userScoreContainer">
+        <img src="person.svg" width="60%" alt="" />
+        <p>Win</p>
+        <br />
+        <span id="userScore">0</span>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
