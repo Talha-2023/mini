@@ -260,7 +260,7 @@ main {
 }
 .heart {
   position: absolute;
-  width: 3.5rem;
+  width: 3rem;
   top: 1.5rem;
   right: 1rem;
   & img {
@@ -497,4 +497,123 @@ footer {
 }
 .svg img:hover {
   transform: scale(0.9);
+}
+
+/* !=========================start popop */
+
+.popup {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 88888;
+  background-color: rgba(0, 0, 0, 0.274);
+  display: none;
+  transition: 0.2s;
+}
+.popContainer {
+  background-color: rgba(48, 45, 45, 0.39);
+  border: 1px solid rgba(80, 76, 76, 0.548);
+  backdrop-filter: blur(2rem);
+  border-radius: 2rem;
+  width: 90%;
+  height: 90%;
+  margin: auto auto;
+  z-index: 889888;
+  padding: 2rem;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.openpopAnimation {
+  animation: popup 0.3s ease-in-out;
+}
+@keyframes popup {
+  from {
+    transform: translate(-95%, -95%) scale(0.095);
+  }
+}
+.closepopAnimation {
+  animation: closepopup 0.3s ease-out;
+}
+@keyframes closepopup {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-100%, -100%) scale(0.095);
+    opacity: 0;
+  }
+}
+.popSelectorContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.close {
+  width: 5rem;
+  height: fit-content;
+
+  & img {
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+}
+.popSelector {
+  display: flex;
+  height: 5rem;
+  border-radius: 2rem;
+  width: 30%;
+  overflow: hidden;
+}
+.favorite,
+.searchDi {
+  background-color: white;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  cursor: pointer;
+  /* transform: scale(0.8);
+  transition: 0.2s ease-in-out; */
+
+  & img {
+    width: 2.5rem;
+  }
+
+  & p {
+    text-transform: capitalize;
+    word-spacing: 0.6rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: "Dosis", Courier, monospace;
+  }
+}
+.searchDi {
+  border-left: 0.1rem solid #f0f5fc;
+}
+.favorite {
+  border-right: 0.1rem solid #f0f5fc;
+}
+.selected {
+  background-color: #d8e8ff;
+}
+
+.popDisplayItemContainer {
+  width: 100%;
+  height: calc(100% - 5rem);
+  box-shadow: 0px 0px 15px 0px gray;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 20px;
 }

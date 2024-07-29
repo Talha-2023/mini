@@ -69,10 +69,15 @@ html {
 
     & .home,
     & .search {
+      width: 50%;
       height: 100%;
       cursor: pointer;
       &:hover {
         background-color: #e7ecf2;
+      }
+
+      & img {
+        width: 45%;
       }
     }
     & .home {

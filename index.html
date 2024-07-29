@@ -34,7 +34,7 @@
     />
   </head>
   <body>
-    <!--!=============BackGround Start==============-->
+    <!-- !=============BackGround Start==============-->
     <div class="background">
       <div class="animat-box-bg bottom"></div>
       <div class="animat-box-bg center"></div>
@@ -49,16 +49,15 @@
           <h1>mini</h1>
         </div>
         <div class="icons">
-          <a href="">
-            <div class="home f-Center">
-              <img src="Style/Assets/Icons/haqua.svg" alt="" width="40%" />
-            </div>
-          </a>
+          <div class="home f-Center" onclick="openPopup(), favDisplayFun() ">
+            <img src="Style/Assets/Icons/haqua.svg" alt="" />
+          </div>
 
-          <div class="search f-Center">
-            <a class="f-Center" href="">
-              <img src="Style/Assets/Icons/searchIcon.svg" alt="" width="38%" />
-            </a>
+          <div
+            class="search f-Center"
+            onclick="openPopup(), searchDisplayFun()"
+          >
+            <img src="Style/Assets/Icons/searchIcon.svg" alt="" />
           </div>
         </div>
       </div>
@@ -86,14 +85,24 @@
       <div class="pr2 appName_Container">
         <a href="Apps/weather-app/weather.html">
           <img class="img_WH100" src="Style/Assets/Images/weather.webp" />
-          <div class="caption f-Center">Weather</div>
+          <div class="caption f-Center">
+            <p>Weather</p>
+            <div class="heart">
+              <img src="Style/Assets/Icons/hearstroke.svg" alt="" />
+            </div>
+          </div>
         </a>
       </div>
 
       <div class="pr3 appName_Container">
         <a href="Apps/RockPaperSeasor/RoackPaperSeasor.html">
           <img class="img_WH100" src="Style/Assets/Images/rock.jpg" />
-          <div class="caption f-Center">Rock Paper Scissors</div>
+          <div class="caption f-Center">
+            <p>Rock Paper Scissors</p>
+            <div class="heart">
+              <img src="Style/Assets/Icons/hearstroke.svg" alt="" />
+            </div>
+          </div>
         </a>
       </div>
 
@@ -107,7 +116,12 @@
       <div class="pr5 appName_Container">
         <a href="Apps/TicTacToe/ttt.html">
           <img class="img_WH100" src="Style/Assets/Images/ttt.jpg" />
-          <div class="caption f-Center">Tic Tac Toe</div>
+          <div class="caption f-Center">
+            <p>Tic Tac Toe</p>
+            <div class="heart">
+              <img src="Style/Assets/Icons/hearstroke.svg" alt="" />
+            </div>
+          </div>
         </a>
       </div>
 
@@ -224,14 +238,44 @@
           created during my learning journey in front-end development. This
           collection showcases my progress and the various skills I have
           acquired over time. Each project reflects a specific aspect of
-          front-end development,. By compiling these projects in one place, I
-          aim to demonstrate my growth, creativity, and dedication to mastering
-          the art of web development.
+          front-end development, By compiling these projects in one place, I aim
+          to demonstrate my growth, creativity, and dedication to mastering the
+          art of web development.
         </p>
         <div class="aboutgif"></div>
       </div>
     </section>
-    <!--?=============what End==============-->
+    <!--?=============what End============== -->
+
+    <!--?=============popup contaienr==============-->
+    <section class="popup" onclick="closePopup(event)">
+      <div
+        class="popContainer openpopAnimation"
+        onclick="event.stopPropagation()"
+        id="popSection"
+      >
+        <div class="popSelectorContainer">
+          <div class="popSelector">
+            <div class="favorite" onclick="favDisplayFun()">
+              <img src="Style/Assets/Icons/haqua.svg" alt="" />
+              <p>Favorites</p>
+            </div>
+            <div class="searchDi" onclick="searchDisplayFun()">
+              <img src="Style/Assets/Icons/searchIcon.svg" alt="" />
+              <p>Search</p>
+            </div>
+          </div>
+          <div class="close" onclick="closePopup(event)">
+            <img src="Style/Assets/Icons/close.svg" alt="" />
+          </div>
+        </div>
+        <div class="favContent popDisplayItemContainer">
+          <div class="displayFavourate" style="font-size: 2rem">Favourate</div>
+          <div class="displaySearch" style="font-size: 2rem">Search</div>
+        </div>
+      </div>
+    </section>
+    <!--?=============popup contaienr==============-->
 
     <!-- !==============footer start================== -->
     <footer>
