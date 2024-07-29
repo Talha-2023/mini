@@ -38,11 +38,12 @@ html {
 /*!================nav start ===============*/
 
 .logoContainer {
+  animation: pop 0.2s ease-in;
   background-color: white;
   box-shadow: var(--shadow-mid);
   position: fixed;
   width: 9.6rem;
-  height: 10.4rem;
+  height: 9.6rem;
   z-index: 1;
   & .logo {
     height: 58%;
@@ -84,4 +85,16 @@ html {
     }
   }
 }
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /*!================nav end ===============*/
