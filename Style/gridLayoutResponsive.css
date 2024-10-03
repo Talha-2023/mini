@@ -1,0 +1,356 @@
+main {
+  display: grid;
+  margin: 0 auto;
+  max-width: 122rem;
+  height: fit-content;
+  animation: scaleFromBottom 0.3s linear;
+  background-color: rgba(255, 255, 255, 0.39);
+  border: 1px solid rgba(255, 255, 255, 0.678);
+  backdrop-filter: blur(2rem);
+  box-shadow: var(--shadow-mid);
+  padding: 2rem 2rem;
+  border-radius: 3rem;
+  grid-gap: 2rem;
+
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 96px);
+  grid-template-areas:
+    "pr01 pr01 pr02 pr02 pr03 pr03 pr04 pr04 pr04 pr04 "
+    "pr01 pr01 pr02 pr02 pr03 pr03 pr04 pr04 pr04 pr04 "
+    "pr01 pr01 pr07 pr07 pr03 pr03 pr09 pr09 pr05 pr05 "
+    "pr06 pr06 pr07 pr07 pr03 pr03 pr09 pr09 pr05 pr05 "
+    "pr06 pr06 pr07 pr07 pr08 pr08 pr09 pr09 pr10 pr10 "
+    "pr06 pr06 pr12 pr12 pr08 pr08 pr14 pr14 pr10 pr10 "
+    "pr06 pr06 pr12 pr12 pr08 pr08 pr14 pr14 pr10 pr10 "
+    "pr11 pr11 pr12 pr12 pr13 pr13 pr13 pr13 pr15 pr15 "
+    "pr11 pr11 pr12 pr12 pr13 pr13 pr13 pr13 pr15 pr15 ";
+}
+@media (min-width: 10px) and (max-width: 199px) {
+  main {
+    width: 95%;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(35, 80px);
+    grid-gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    grid-template-areas:
+      "pr01"
+      "pr01"
+      "pr02"
+      "pr02"
+      "pr03"
+      "pr03"
+      "pr04"
+      "pr04"
+      "pr05"
+      "pr05"
+      "pr06"
+      "pr06"
+      "pr07"
+      "pr07"
+      "pr08"
+      "pr08"
+      "pr09"
+      "pr09"
+      "pr10"
+      "pr10"
+      "pr11"
+      "pr11"
+      "pr12"
+      "pr12"
+      "pr13"
+      "pr13"
+      "pr14"
+      "pr14"
+      "pr15"
+      "pr15";
+  }
+  main .appName_Container {
+    border-radius: 0.5rem;
+  }
+}
+@media (min-width: 200px) and (max-width: 249px) {
+  main {
+    width: 95%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(23, 50px);
+    grid-gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    & .appName_Container {
+      border-radius: 0.8rem;
+    }
+    /* grid-template-areas:
+      "pr01 pr01 pr02 pr02 pr03 pr03 pr03 "
+      "pr01 pr01 pr02 pr02 pr03 pr03 pr03 "
+      "pr01 pr01 pr05 pr05 pr05 pr06 pr06 "
+      "pr04 pr04 pr05 pr05 pr05 pr06 pr06 "
+      "pr04 pr04 pr08 pr08 pr09 pr09 pr09 "
+      "pr07 pr07 pr08 pr08 pr09 pr09 pr09 "
+      "pr07 pr07 pr10 pr10 pr10 pr11 pr11 "
+      "pr07 pr07 pr10 pr10 pr10 pr11 pr11 "
+      "pr12 pr12 pr13 pr13 pr14 pr14 pr14 "
+      "pr12 pr12 pr13 pr13 pr14 pr14 pr14 "
+      "pr12 pr12 pr15 pr15 pr14 pr14 pr14 "
+      " .    .    .    .    .    .    .   "
+      " .    .    .    .    .    .    .   ";*/
+
+    grid-template-areas:
+      "pr01 pr02"
+      "pr01 pr02"
+      "pr01 pr03"
+      "pr04 pr03"
+      "pr04 pr03"
+      "pr04 pr05"
+      "pr06 pr05"
+      "pr06 pr05"
+      "pr06 pr07"
+      "pr08 pr07"
+      "pr08 pr07"
+      "pr08 pr09"
+      "pr10 pr09"
+      "pr10 pr09"
+      "pr10 pr11"
+      "pr12 pr11"
+      "pr12 pr11"
+      "pr12 pr13"
+      "pr14 pr13"
+      "pr14 pr13"
+      "pr14 pr15"
+      " .   pr15"
+      " .   pr15"
+      " .    .   "
+      " .    .   ";
+  }
+}
+@media (min-width: 250px) and (max-width: 349px) {
+  main {
+    width: 95%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(30, 70px);
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    & .appName_Container {
+      border-radius: 1.6rem;
+    }
+    grid-template-areas:
+      "pr01 pr02"
+      "pr01 pr02"
+      "pr01 pr03"
+      "pr04 pr03"
+      "pr04 pr03"
+      "pr04 pr05"
+      "pr06 pr05"
+      "pr06 pr05"
+      "pr06 pr07"
+      "pr08 pr07"
+      "pr08 pr07"
+      "pr08 pr09"
+      "pr10 pr09"
+      "pr10 pr09"
+      "pr10 pr11"
+      "pr12 pr11"
+      "pr12 pr11"
+      "pr12 pr13"
+      "pr14 pr13"
+      "pr14 pr13"
+      "pr14 pr15"
+      " .   pr15"
+      " .   pr15"
+      " .    .  "
+      " .    .  "
+      " .    .  "
+      " .    .  ";
+  }
+}
+
+@media (min-width: 350px) and (max-width: 395px) {
+  main {
+    width: 95%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(30, 60px);
+    grid-gap: auto;
+    grid-template-areas:
+      "pr01 pr01 pr02 pr02 "
+      "pr01 pr01 pr02 pr02 "
+      "pr01 pr01 pr03 pr03 "
+      "pr04 pr04 pr03 pr03 "
+      "pr04 pr04 pr03 pr03 "
+      "pr04 pr04 pr05 pr05 "
+      "pr06 pr06 pr05 pr05 "
+      "pr06 pr06 pr05 pr05 "
+      "pr06 pr06 pr07 pr07 "
+      "pr08 pr08 pr07 pr07 "
+      "pr08 pr08 pr07 pr07 "
+      "pr08 pr08 pr09 pr09 "
+      "pr10 pr10 pr09 pr09 "
+      "pr10 pr10 pr09 pr09 "
+      "pr10 pr10 pr11 pr11 "
+      "pr12 pr12 pr11 pr11 "
+      "pr12 pr12 pr11 pr11 "
+      "pr12 pr12 pr13 pr13 "
+      "pr14 pr14 pr13 pr13 "
+      "pr14 pr14 pr13 pr13 "
+      "pr14 pr14 pr15 pr15 "
+      "pr14 pr14 pr15 pr15 "
+      "pr14 pr14 pr15 pr15 ";
+  }
+
+  /* .pr4,
+  .pr5,
+  .pr6,
+  .pr7,
+  .pr8,
+  .pr9,
+  .pr10,
+  .pr11,
+  .pr12,
+  .pr13,
+  .pr14,
+  .pr15 {
+    display: none;
+  } */
+}
+
+@media (min-width: 396px) and (max-width: 449px) {
+  main {
+    width: 95%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(30, 80px);
+    grid-gap: auto;
+    grid-template-areas:
+      "pr01 pr01 pr02 pr02 "
+      "pr01 pr01 pr02 pr02 "
+      "pr01 pr01 pr03 pr03 "
+      "pr04 pr04 pr03 pr03 "
+      "pr04 pr04 pr03 pr03 "
+      "pr04 pr04 pr05 pr05 "
+      "pr06 pr06 pr05 pr05 "
+      "pr06 pr06 pr05 pr05 "
+      "pr06 pr06 pr07 pr07 "
+      "pr08 pr08 pr07 pr07 "
+      "pr08 pr08 pr07 pr07 "
+      "pr08 pr08 pr09 pr09 "
+      "pr10 pr10 pr09 pr09 "
+      "pr10 pr10 pr09 pr09 "
+      "pr10 pr10 pr11 pr11 "
+      "pr12 pr12 pr11 pr11 "
+      "pr12 pr12 pr11 pr11 "
+      "pr12 pr12 pr13 pr13 "
+      "pr14 pr14 pr13 pr13 "
+      "pr14 pr14 pr13 pr13 "
+      "pr14 pr14 pr15 pr15 "
+      "pr14 pr14 pr15 pr15 "
+      "pr14 pr14 pr15 pr15 ";
+  }
+
+  /* .pr4,
+  .pr5,
+  .pr6,
+  .pr7,
+  .pr8,
+  .pr9,
+  .pr10,
+  .pr11,
+  .pr12,
+  .pr13,
+  .pr14,
+  .pr15 {
+    display: none;
+  } */
+}
+
+@media (min-width: 450px) and (max-width: 499px) {
+  main {
+    width: 95%;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(11, 55px);
+    grid-gap: 1rem;
+
+    & .appName_Container {
+      border-radius: 1rem;
+    }
+    grid-template-areas:
+      "pr01 pr01 pr02 pr02 pr03 pr03 pr03 "
+      "pr01 pr01 pr02 pr02 pr03 pr03 pr03 "
+      "pr01 pr01 pr05 pr05 pr05 pr06 pr06 "
+      "pr04 pr04 pr05 pr05 pr05 pr06 pr06 "
+      "pr04 pr04 pr08 pr08 pr09 pr09 pr09 "
+      "pr07 pr07 pr08 pr08 pr09 pr09 pr09 "
+      "pr07 pr07 pr10 pr10 pr10 pr11 pr11 "
+      "pr07 pr07 pr10 pr10 pr10 pr11 pr11 "
+      "pr12 pr12 pr13 pr13 pr14 pr14 pr14 "
+      "pr12 pr12 pr13 pr13 pr14 pr14 pr14 "
+      "pr12 pr12 pr15 pr15 pr14 pr14 pr14 "
+      " .    .    .    .    .    .    .   "
+      " .    .    .    .    .    .    .   ";
+  }
+}
+
+@media (min-width: 500px) and (max-width: 714px) {
+  main {
+    width: 49rem;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(11, 60px);
+    grid-gap: 1rem;
+
+    & .appName_Container {
+      border-radius: 1.5rem;
+    }
+    grid-template-areas:
+      "pr01 pr01 pr02 pr02 pr03 pr03 pr03 "
+      "pr01 pr01 pr02 pr02 pr03 pr03 pr03 "
+      "pr01 pr01 pr05 pr05 pr05 pr06 pr06 "
+      "pr04 pr04 pr05 pr05 pr05 pr06 pr06 "
+      "pr04 pr04 pr08 pr08 pr09 pr09 pr09 "
+      "pr07 pr07 pr08 pr08 pr09 pr09 pr09 "
+      "pr07 pr07 pr10 pr10 pr10 pr11 pr11 "
+      "pr07 pr07 pr10 pr10 pr10 pr11 pr11 "
+      "pr12 pr12 pr13 pr13 pr14 pr14 pr14 "
+      "pr12 pr12 pr13 pr13 pr14 pr14 pr14 "
+      "pr12 pr12 pr15 pr15 pr14 pr14 pr14 "
+      " .    .    .    .    .    .    .   "
+      " .    .    .    .    .    .    .   ";
+  }
+}
+
+@media (min-width: 715px) and (max-width: 899px) {
+  main {
+    width: 69rem;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 55px);
+    grid-gap: 1.2rem;
+    & .appName_Container {
+      border-radius: 1.5rem;
+    }
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 900px) and (max-width: 959px) {
+  main {
+    width: 98%;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 75px);
+  }
+}
+@media (min-width: 960px) and (max-width: 1022px) {
+  main {
+    width: 98%;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 80px);
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 1023px) and (max-width: 1249px) {
+  main {
+    width: 99rem;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 80px);
+  }
+}
+
+/* Extra large devices (large desktops) */
+@media (min-width: 1250px) {
+}

@@ -9,6 +9,7 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -125,16 +126,83 @@ a {
 nav {
   margin: 2rem auto;
   display: grid;
-  grid-template-columns: repeat(11, 96px);
+  grid-template-columns: 96px 1fr;
   grid-template-rows: repeat(1, 96px);
   grid-gap: 16px;
-  width: 121.6rem;
-  grid-template-areas: " a  nVi nVi nVi nVi nVi nVi nVi nVi nVi nVi";
+  width: 95%;
+  max-width: 122rem;
+
+  grid-template-areas: " a  nVi";
+}
+
+.logoContainer {
+  animation: pop 0.2s ease-in;
+  background-color: white;
+  box-shadow: var(--shadow-mid);
+  position: fixed;
+  width: 9.6rem;
+  height: 9.6rem;
+  z-index: 1;
+  & .logo {
+    height: 58%;
+    font-family: "logoFont";
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    color: #002b50;
+    background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  & .icons {
+    width: 100%;
+    height: 42%;
+    border-top: 0.2rem solid #f0f5fc;
+    display: flex;
+
+    & .home,
+    & .search {
+      width: 50%;
+      height: 100%;
+      cursor: pointer;
+      &:hover {
+        background-color: #e7ecf2;
+      }
+
+      & img {
+        width: 45%;
+      }
+    }
+    & .home {
+      border-right: 0.1rem solid #f0f5fc;
+      border-radius: 0px 0px 0px 16px;
+    }
+    & .search {
+      border-left: 0.1rem solid #f0f5fc;
+      border-radius: 0px 0px 16px 0px;
+    }
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .navVideo {
   grid-area: nVi;
-  animation: scaleFromright 0.4s linear;
+  animation: scaleFromRight 0.4s linear;
 
   & img {
     width: 100%;
@@ -164,7 +232,7 @@ nav {
     opacity: 1;
   }
 }
-@keyframes scaleFromright {
+@keyframes scaleFromRight {
   0% {
     transform: translateX(50%);
     opacity: 0;
@@ -191,36 +259,6 @@ nav {
   }
 }
 
-main {
-  display: grid;
-  margin: 0 auto;
-  width: 121.6rem;
-  animation: scaleFromBottom 0.3s linear;
-  height: fit-content;
-  background-color: rgba(255, 255, 255, 0.39);
-  border: 1px solid rgba(255, 255, 255, 0.678);
-  backdrop-filter: blur(2rem);
-  box-shadow: var(--shadow-mid);
-  padding: 2rem 2rem;
-  border-radius: 3rem;
-  grid-template-columns: repeat(10, minmax(96px, 1fr));
-  grid-template-rows: repeat(10, 96px);
-  grid-gap: 2rem;
-  grid-template-areas:
-    "pr01 pr01 pr02 pr02 pr03 pr03 pr04 pr04 pr04 pr04 "
-    "pr01 pr01 pr02 pr02 pr03 pr03 pr04 pr04 pr04 pr04 "
-    "pr01 pr01 pr07 pr07 pr03 pr03 pr09 pr09 pr05 pr05 "
-    "pr06 pr06 pr07 pr07 pr08 pr08 pr09 pr09 pr05 pr05 "
-    "pr06 pr06 pr07 pr07 pr08 pr08 pr09 pr09 pr10 pr10 "
-    "pr06 pr06 pr12 pr12 pr08 pr08 pr14 pr14 pr10 pr10 "
-    "pr11 pr11 pr12 pr12 pr13 pr13 pr14 pr14 pr10 pr10 "
-    "pr11 pr11 pr12 pr12 pr13 pr13 pr14 pr14 pr15 pr15 "
-    "pr11 pr11  .    .   pr13 pr13  .    .   pr15 pr15 "
-    " .    .    .    .    .    .    .    .   pr15 pr15  "
-    " .    .    .    .    .    .    .    .    .    .   "
-    " .    .    .    .    .    .    .    .    .    .   ";
-}
-
 .appName_Container {
   overflow: hidden;
   border-radius: 20px;
@@ -229,16 +267,26 @@ main {
   animation: appear ease-in-out;
   animation-timeline: view();
   animation-range: entry 0% cover 25%;
+  transition: 0.3s ease-out;
 
   &:hover .caption {
-    opacity: 1;
+    animation: opacity 0.3s forwards;
   }
   &:hover img {
     transform: scale(1.1);
   }
   &:hover {
-    transition: 0.3s;
-    transform: scale(1.07);
+    transform: scale(0.95);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.459);
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 .appName_Container .caption {
@@ -251,7 +299,7 @@ main {
   font-family: "Urbanist", Courier, monospace;
   font-weight: 700;
   background-color: rgba(0, 0, 0, 0.555);
-  width: 100%;
+  width: 102%;
   height: 100%;
   opacity: 0;
   color: white;
@@ -338,9 +386,10 @@ main {
 .about {
   margin: 7rem auto;
   height: 45rem;
-  width: 121.6rem;
+  width: 95vw;
+  max-width: 122rem;
   border-radius: 1.6rem;
-  background-color: rgba(255, 255, 255, 0.39);
+  background-color: rgba(192, 207, 223, 0.39);
   border: 1px solid rgba(255, 255, 255, 0.678);
   backdrop-filter: blur(2rem);
   box-shadow: var(--shadow-mid);
@@ -348,21 +397,20 @@ main {
   box-shadow: var(--shadow-mid);
 }
 .whatContainer {
-  /* background-color: #009cff; */
   display: flex;
-  display: grid;
-  grid-template-columns: auto 1fr;
   gap: 20px;
 }
 .about .what {
   background: white;
   border-radius: 16px;
   padding: 3rem;
-  width: fit-content;
+  max-width: 34rem;
   font-size: 3rem;
   text-transform: capitalize;
   font-family: "logoFont";
   letter-spacing: 1px;
+  text-align: center;
+  text-wrap: nowrap;
 }
 .about .what .what1 {
   background: linear-gradient(rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
@@ -375,6 +423,7 @@ main {
   color: transparent;
 }
 .noteOrg {
+  width: 80%;
   background-color: white;
   border-radius: 16px;
   text-transform: capitalize;
@@ -386,10 +435,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem 2rem;
   & p {
     background: linear-gradient(rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
     -webkit-background-clip: text;
     color: transparent;
+    text-align: center;
   }
   & p span {
     background: linear-gradient(43deg, #ff6a00, #ee0979, #4facfe);
@@ -398,8 +449,8 @@ main {
     letter-spacing: 1px;
   }
   & .icon {
-    margin-left: 1rem;
-    vertical-align: bottom;
+    margin-left: 0.5rem;
+    vertical-align: top;
   }
 }
 .aboutParaContainer {
@@ -428,16 +479,18 @@ main {
   background-image: url("Assets/Images/giphy.gif");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* fffffffffffffffffffffff */
 footer {
-  width: 100%;
-  height: 30rem;
-  width: 121.6rem;
+  width: 95vw;
+  max-width: 122rem;
+  height: auto;
   margin: 16rem auto 0;
+  padding: 2rem;
   border-radius: 100px 100px 0 0;
-  background-color: rgba(255, 255, 255, 0.39);
+  background-color: rgba(255, 252, 58, 0.39);
   border: 1px solid rgba(255, 255, 255, 0.678);
   backdrop-filter: blur(2rem);
   box-shadow: var(--shadow-mid);
@@ -458,7 +511,7 @@ footer {
 
 .footerSection .footerPara {
   width: 50%;
-  height: 100%;
+  height: fit-content;
   font-size: 1.8rem;
   border-radius: 16px;
   background-color: white;
@@ -474,7 +527,7 @@ footer {
   width: 45%;
   height: 120%;
   border-radius: 16px;
-  margin-top: -20rem;
+  margin-top: -15rem;
   flex-direction: column;
 }
 .footerSection .talha img {
@@ -494,9 +547,14 @@ footer {
   background-color: rgba(48, 45, 45, 0.39);
   border: 1px solid rgba(80, 76, 76, 0.548);
   box-sizing: content-box;
+
+  & * {
+    transition: 0.3s ease-out;
+  }
 }
 .svg img:hover {
   transform: scale(0.9);
+  filter: invert(10%);
 }
 
 /* !=========================start popop */
@@ -546,7 +604,7 @@ footer {
     transform: translate(-50%, -50%) scale(1);
   }
   to {
-    transform: translate(-100%, -100%) scale(0.095);
+    transform: translate(-95%, -95%) scale(0.095);
     opacity: 0;
   }
 }
@@ -569,26 +627,23 @@ footer {
 }
 .popSelector {
   display: flex;
-  height: 5rem;
   border-radius: 2rem;
-  width: 30%;
+  width: fit-content;
   overflow: hidden;
+  /* border: 1px solid blue; */
 }
 .favorite,
 .searchDi {
   background-color: white;
-  width: 50%;
+  /* border: 1px solid red; */
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
   cursor: pointer;
-  /* transform: scale(0.8);
-  transition: 0.2s ease-in-out; */
-
+  padding: 1rem 2rem;
   & img {
     width: 2.5rem;
+    margin-right: 0.9rem;
   }
 
   & p {
@@ -616,4 +671,138 @@ footer {
   padding: 2rem;
   background-color: white;
   border-radius: 20px;
+}
+@media screen and (max-width: 500px) {
+  .favorite,
+  .searchDi {
+    padding: 0.5rem 1rem;
+    & img {
+      width: 1.5rem;
+    }
+
+    & p {
+      text-transform: capitalize;
+      word-spacing: 0.6rem;
+      font-size: 2rem;
+      font-weight: 900;
+      font-family: "Dosis", Courier, monospace;
+    }
+  }
+
+  .close {
+    width: 2rem;
+    height: fit-content;
+    margin-top: 0.8rem;
+    margin-right: 1rem;
+  }
+
+  .popContainer {
+    width: 95%;
+    height: 98%;
+    padding: 1rem 0.5rem;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 288px) {
+  .favorite,
+  .searchDi {
+    padding: 1rem 2rem;
+    & p {
+      display: none;
+    }
+    & img {
+      width: 2rem;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .about {
+    height: fit-content;
+  }
+  .aboutParaContainer {
+    flex-direction: column;
+  }
+  .aboutPara {
+    width: 100%;
+    padding-bottom: 10rem;
+  }
+  .aboutgif {
+    width: 50%;
+    height: 20rem;
+    margin: 0 auto;
+    margin-top: -10rem;
+  }
+  .footerSection {
+    flex-direction: column;
+  }
+  .footerSection .talha {
+    width: 80%;
+    height: 120%;
+    border-radius: 16px;
+    margin-top: -15rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .svg {
+    float: none;
+  }
+  .footerSection .footerPara {
+    width: 100%;
+  }
+  .appName_Container .caption {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 676px) {
+  .whatContainer {
+    flex-direction: column;
+  }
+  .about .what {
+    max-width: 100%;
+  }
+
+  .noteOrg {
+    padding: 2rem 1rem;
+    width: 100%;
+  }
+
+  .aboutParaContainer {
+    flex-direction: column;
+  }
+  .aboutPara {
+    width: 100%;
+    padding-bottom: 10rem;
+  }
+  .aboutgif {
+    width: 80%;
+    height: 20rem;
+    margin: 0 auto;
+    margin-top: -10rem;
+  }
+  .footerSection .talha {
+    margin-top: -10rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 344px) {
+  .about {
+    padding: 1rem;
+  }
+  .about .what {
+    text-wrap: wrap;
+  }
+  .footerSection .talha {
+    margin-top: -5rem;
+  }
+  footer {
+    margin-top: 5rem;
+    border-radius: 5rem;
+  }
 }
