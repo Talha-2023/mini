@@ -272,14 +272,11 @@ nav {
   &:hover .caption {
     animation: opacity 0.3s forwards;
   }
-  &:hover img {
-    transform: scale(1.1);
-  }
   &:hover .heart {
     animation: opacity 0.3s forwards;
   }
   &:hover {
-    transform: scale(0.95);
+    transform: scale(0.98);
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.459);
   }
 }

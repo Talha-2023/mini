@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "logoFont";
+  src: url(../../Style/Assets/Fonts/Minison.ttf);
+}
+
+.navSmallBottom {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  width: fit-content;
+  height: auto;
+  overflow: hidden;
+  border-radius: 15px 15px 0px 0px;
+  background-color: white;
+  box-shadow: 0px 0px 50px 0px #75757577;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 7px 2px;
+}
+.navSmallBottom a img {
+  width: 22px;
+  margin: 0px 4px;
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+a {
+  text-decoration: none;
+}
