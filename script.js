@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
   favoriteButtons.forEach((button) => {
     const card = button.closest(".appName_Container");
     const cardId = card.getAttribute("data-id");
-
     if (favorites.includes(cardId)) {
       button.children[0].setAttribute("src", "Style/Assets/Icons/hearfill.svg");
       addToFavorites(card);
+      ifFavEmpty();
     }
     button.addEventListener("click", function () {
       if (favorites.includes(cardId)) {
@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Style/Assets/Icons/hearstroke.svg"
         );
         removeFromFavorites(cardId);
+        ifFavEmpty();
       } else {
         favorites.push(cardId);
         button.children[0].setAttribute(
@@ -84,8 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
           "Style/Assets/Icons/hearfill.svg"
         );
         addToFavorites(card);
+        ifFavEmpty();
       }
       localStorage.setItem("favorites", JSON.stringify(favorites));
+      ifFavEmpty();
     });
   });
 
@@ -107,7 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .querySelector(`.appName_Container[data-id="${cardId}"]`)
         .querySelector(".heart img")
         .setAttribute("src", "Style/Assets/Icons/hearstroke.svg");
+      ifFavEmpty();
     });
+    ifFavEmpty();
   }
 
   function removeFromFavorites(cardId) {
@@ -117,8 +122,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (cardToRemove) {
       cardToRemove.remove();
+      ifFavEmpty();
+    }
+    ifFavEmpty();
+  }
+
+  function ifFavEmpty() {
+    const emptyMsg = document.querySelector(".ifFavIsEmplty");
+    if (favoriteCardsContainer.children.length > 1) {
+      emptyMsg.style.display = "none";
+    } else {
+      emptyMsg.style.display = "flex";
     }
   }
+  ifFavEmpty();
 
   // const messageElement = document.querySelector(".displayWhenCldNotThere");
   // if (favoriteCardsContainer.children.length === 0) {

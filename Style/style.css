@@ -283,15 +283,13 @@ nav {
 /*!displayFavourate */
 
 .displayFavourate {
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  grid-template-rows: repeat(
-    auto-fill,
-    200px
-  ); /* Rows with a height of 200px */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+  grid-auto-rows: 200px;
   gap: 10px;
 }
 .displayFavourate .appName_Container {
-  animation: none; /* Disable animation */
+  animation: none;
   &:hover,
   &:hover img {
     transform: none;
@@ -311,7 +309,7 @@ nav {
 .displayFavourate .heart {
   opacity: 1;
 }
-.displayWhenCldNotThere {
+.ifFavIsEmplty {
   display: none;
   position: absolute;
   width: 150px;
@@ -845,7 +843,13 @@ footer {
     width: 100%;
   }
 }
-
+@media screen and (max-width: 490px) {
+  .displayFavourate {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 344px) {
   .about {
     padding: 1rem;
@@ -859,5 +863,9 @@ footer {
   footer {
     margin-top: 5rem;
     border-radius: 5rem;
+  }
+  .displayFavourate {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 100px;
   }
 }
